@@ -39,3 +39,8 @@ func main() {
 	fmt.Printf("%s", res)
 }
 ```
+
+## More Info
+
+- Swetest test page: http://www.astro.com/swisseph/swetest.htm
+- Help: http://www.astro.com/cgi/swetest.cgi?arg=-h&p=0
