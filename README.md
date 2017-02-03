@@ -12,6 +12,8 @@ go get -u github.com/DestinyLab/go-swetest
 
 ## Usage
 
+You can download the ephemeris files to specifically directory (default same as `binary`).
+
 ```go
 package main
 
@@ -24,6 +26,7 @@ import (
 
 func main() {
 	opt := []string{
+    "-edir./resources/",
 		"-b11.11.2017",
 		"-ut00:00:00",
 		"-p0",
@@ -44,3 +47,4 @@ func main() {
 
 - Swetest test page: http://www.astro.com/swisseph/swetest.htm
 - Help: http://www.astro.com/cgi/swetest.cgi?arg=-h&p=0
+- ephemeris files: ftp://ftp.astro.com/pub/swisseph/ephe/

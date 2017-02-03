@@ -2,59 +2,61 @@ package swetest
 
 import "testing"
 
+var opt = []string{
+	"-edir./resources/",
+	"-b11.11.2016",
+	"-ut00:00:00",
+	"-p0",
+	"-fZ",
+	"-eswe",
+	"-head",
+}
+
 func TestNew(t *testing.T) {
 	New()
 }
 
-func TestSetPath(t *testing.T) {
+func TestSetBinPath(t *testing.T) {
 	s := New()
-	s.SetPath("path/to")
+	s.SetBinPath("path/to")
 
-	if s.path != "path/to" {
-		t.Error("SetPath error")
+	if s.binPath != "path/to" {
+		t.Error("SetBinPath error")
 	}
 }
 
 func TestQuery(t *testing.T) {
-	opt := []string{`-b11.11.2016 -ut00:00:00 -p0 -fZ -eswe`}
 	s := New()
-	s.SetPath("./resources/")
-	_, err := s.Query(opt)
+	s.SetBinPath("./")
+	res, err := s.Query(opt)
 	if err != nil {
 		t.Error(err)
 	}
+	t.Log(string(res))
 }
 
-func Benchmark_New(b *testing.B) {
+func BenchmarkNew(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		New()
 	}
 }
 
-func Benchmark_SetPath(b *testing.B) {
+func BenchmarkSetPath(b *testing.B) {
 	s := New()
 	for i := 0; i < b.N; i++ {
-		s.SetPath("path/to")
+		s.SetBinPath("path/to")
 	}
 }
 
-func Benchmark_Query(b *testing.B) {
+func BenchmarkQuery(b *testing.B) {
 	s := New()
-	opt := []string{
-		"-b11.11.2016",
-		"-ut00:00:00",
-		"-p0",
-		"-fZ",
-		"-eswe",
-		"-head",
-	}
 	for i := 0; i < b.N; i++ {
 		s.Query(opt)
 	}
 }
 
-func Benchmark_getDefaultPath(b *testing.B) {
+func BenchmarkGetDefaultBinPath(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		getDefaultPath()
+		getDefaultBinPath()
 	}
 }
