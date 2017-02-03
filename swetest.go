@@ -59,7 +59,7 @@ func (s *Swetest) SetBinPath(p string) {
 
 // Query query what you want.
 func (s *Swetest) Query(q []string) ([]byte, error) {
-	return exec.Command(s.binPath+"swetest", q[0:]...).Output()
+	return exec.Command(s.binPath+"/swetest", q[0:]...).Output()
 }
 
 func getDefaultBinPath() string {
