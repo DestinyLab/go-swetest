@@ -18,28 +18,28 @@ You can download the ephemeris files to specifically directory (default same as 
 package main
 
 import (
-	"fmt"
-	"log"
+  "fmt"
+  "log"
 
-	"github.com/DestinyLab/go-swetest"
+  "github.com/DestinyLab/go-swetest"
 )
 
 func main() {
-	opt := []string{
+  opt := []string{
     "-edir./resources/",
-		"-b11.11.2017",
-		"-ut00:00:00",
-		"-p0",
-		"-fZ",
-		"-eswe",
-		"-head",
-	}
-	s := swetest.New()
-	res, err := s.Query(opt)
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Printf("%s", res)
+    "-b11.11.2017",
+    "-ut00:00:00",
+    "-p0",
+    "-fZ",
+    "-eswe",
+    "-head",
+  }
+  s := swetest.New()
+  res, err := s.Query(opt)
+  if err != nil {
+    log.Fatal(err)
+  }
+  fmt.Printf("%s", res)
 }
 ```
 
